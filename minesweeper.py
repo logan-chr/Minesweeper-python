@@ -32,12 +32,12 @@ class answer_board():
                     for k in range(3):
                         for l in range(3):
                             a = i+k-1
-                            b = i+l-1
+                            b = j+l-1
                             print(a,b)
                             if a >=0 and a <=9 and b>=0 and b<=9:
                                 if board.board[a][b] != 'n':
                                     board.board[a][b]+=1
-        board.display()
+        
                     
                             
                             
