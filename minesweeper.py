@@ -37,6 +37,10 @@ class answer_board():
                             if a >=0 and a <=9 and b>=0 and b<=9:
                                 if board.board[a][b] != 'n':
                                     board.board[a][b]+=1
+        self.board = board
+    def display(self):
+        for i in range(self.board.length):
+            print(self.board.board[i])
         
                     
                             
@@ -58,27 +62,29 @@ class game_board():
 
             
 class game:
-    def __init__(self):
-        self.je = board(10)
+    def __init__(self,length,index):
+        a = board(length)
 
 
-        self.je.add_mines(80)
-        self.je.display()
+        a.add_mines(index)
+        
 
-        self.ga = game_board(self.je)
-        self.ga.display()
-        a = answer_board(self.je)
+        self.game_board = game_board(a)
+        self.game_board.display()
+        self.board = answer_board(a)
+        self.board.display()
     def process(self):
         x = int(input('x:'))
         y = int(input('y:'))
-        print(self.je.board[x][y])
-        
+        print(self.board.board[x][y])
+        if self.board.board.board[x][y] == 'n':
+            print('bomb')
 
 
 
 
 
-game = game()
+game = game(10,80)
 while True:
     game.process()
 
